@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Toolkit;
 import java.util.Random;
 
 import org.lwjgl.input.Mouse;
@@ -14,7 +15,8 @@ import menus.Menu;
 
 public class Main extends BasicGame {
 
-	public static int w = 1920, h = 1080, border = (int) (w*0.25);
+	public static int w = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth(),
+			h = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight(), border = (int) (w*0.25);
 	
 	public Main() {
 		super("ARE YOUR JIMMIES NOT RUSTLED?");
@@ -27,7 +29,7 @@ public class Main extends BasicGame {
 	public static void main(String[] args) {
 		try{
 			AppGameContainer app = new AppGameContainer(new Main());
-			app.setDisplayMode(1920, 1080, true);
+			app.setDisplayMode(w, h, true);
 			app.setMinimumLogicUpdateInterval(15);
 			app.setVSync(true);
 			//nothing after app.start() runs
